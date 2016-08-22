@@ -1,0 +1,6 @@
+<h3>Local Contacts</h3>
+<ul>
+    <li *ngFor="let contact of contacts; let i = index">
+        {{i + 1}}. {{contact.name}} - {{contact.address.city}}, {{contact.address.country}}
+    </li>
+</ul>
