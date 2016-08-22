@@ -14,8 +14,13 @@ You must see atleast 4.5.x. or latest
 
 Install below tools
 
-> `npm install typescript   -g` 
-> `npm install typings    -g`
+```bash
+npm install typescript   -g
+
+npm install typings    -g
+
+npm install karma-cli
+```
 
  
 ```bash
@@ -32,15 +37,7 @@ then simultaneously re-compiles and runs the `lite-server`.
 Both the compiler and the server watch for file changes.
 
 Shut it down manually with Ctrl-C.
-
-You're ready to write your application.
-
-### npm scripts
-
-We've captured many of the most useful commands in npm scripts defined in the `package.json`:
-
-* `npm start` - runs the compiler and a server at the same time, both in "watch mode".
-* `npm test` - compiles, runs and watches the karma unit tests
+ 
  
 ### Unit Tests
 TypeScript unit-tests are usually in the `app` folder. Their filenames must end in `.spec`.
@@ -50,11 +47,27 @@ Add more `.spec.ts` files as you wish; we configured karma to find them.
 
 Run it with `npm test`
  
-Shut it down manually with Ctrl-C.
-
-Test-runner output appears in the terminal window.
-We can update our app and our tests in real-time, keeping a weather eye on the console for broken tests.
-Karma is occasionally confused and it is often necessary to shut down its browser or even shut the command down (Ctrl-C) and
-restart it. No worries; it's pretty quick.
-
+ 
 The `HTML-Reporter` is also wired in. That produces a prettier output; look for it in `~_test-output/tests.html`.
+
+### Proxy server
+
+Have proxy server? To set typings proxy,
+
+on the application root folder, create a file ".typingsrc", update the proxy detail
+```
+{
+    "proxy" : "http://username:password@10.9.64.4:8002"
+}
+```
+
+note: replace @ symbol with %40
+
+
+to set npm proxy:
+
+open command line/terminal:
+
+npm config set proxy http://username:password@10.9.64.4:8002
+npm config set https-proxy http://username:password@10.9.64.4:8002
+
