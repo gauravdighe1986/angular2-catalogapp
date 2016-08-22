@@ -68,6 +68,8 @@ to set npm proxy:
 
 open command line/terminal:
 
+```
 npm config set proxy http://username:password@10.9.64.4:8002
-npm config set https-proxy http://username:password@10.9.64.4:8002
 
+npm config set https-proxy http://username:password@10.9.64.4:8002
+```
