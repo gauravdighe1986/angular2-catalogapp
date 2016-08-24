@@ -1,0 +1,13 @@
+<form #productForm (submit)="saveProduct(productForm)">
+
+<label for="name">Name</label>
+
+<input [(ngModel)]="product.name" name="name" id="name" >
+
+
+<label for="year">Year</label>
+<input [(ngModel)]="product.year" name="year" id="year" >
+
+<button type="submit">Save</button>
+
+</form>

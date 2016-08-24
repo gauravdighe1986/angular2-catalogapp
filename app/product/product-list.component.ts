@@ -1,5 +1,6 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Inject} from "@angular/core";
+
 
 import 'rxjs/add/operator/toPromise';
 
@@ -21,14 +22,29 @@ export class ProductListComponent {
  
      constructor(private http:Http, @Inject("apiEndPoint") private apiEndPoint:string) {
          
-        this.http.get(apiEndPoint + "/api/products")
+      
+    }
+
+    ngOnInit() {
+          this.http.get(this.apiEndPoint + "/api/products")
         .map((res:Response) => res.json())
         .subscribe(
             data => { this.products = data},
             err => console.error(err),
             () => console.log('done')
         );
+    }
 
+    deleteProduct(id: any) {
+        this.http.delete(this.apiEndPoint + "/api/products/" +id)
+        .subscribe((response : Response) => {
+            console.log("Deleted");
+
+            this.products.forEach((p:any, i:number) => {
+                if (p.id == id) { this.products.splice(i, 1); }
+            });
+            
+        })
     }
 
 

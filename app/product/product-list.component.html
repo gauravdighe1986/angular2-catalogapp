@@ -4,11 +4,13 @@
     <tr>
         <th>Name</th>
         <th>Year</th>
+        <th>Delete</th>
     </tr>
  
     <!--byYear:2010-->
     <tr *ngFor="let product of (products | byYear)">
         <td> <a [routerLink]="['/products/detail/', product.id]">{{product.name}}</a></td>
         <td>{{product.year}}</td>
+        <td><button (click)="deleteProduct(product.id)">Delete</button>
     </tr>
 </table>

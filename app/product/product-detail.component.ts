@@ -2,8 +2,9 @@ import {Component} from "@angular/core";
 import {Inject} from "@angular/core";
 import {OnInit} from "@angular/core";
 
-import {ActivatedRoute, Params} from "@angular/router";
+import {Router, ActivatedRoute, Params} from "@angular/router";
 import {Http, Response} from "@angular/http";
+
 
 @Component({
     templateUrl: 'app/product/product-detail.component.html'
@@ -14,6 +15,7 @@ export class ProductDetailComponent implements OnInit{
 
     constructor(private route: ActivatedRoute, 
                 private http: Http,
+                private router: Router,
                 @Inject("apiEndPoint") private apiEndPoint:string
                 ) {
         
@@ -36,6 +38,10 @@ export class ProductDetailComponent implements OnInit{
         window.history.back();
     }
     
+    editProduct() {
+        this.router.navigate(['/products/edit/', this.product.id]);
+
+    }
 
     //import {Router, ActivatedRoute} from "@angular/router";
     //this.router.navigate(['/contacts/detail/' + id, {'extra' : 2}]);

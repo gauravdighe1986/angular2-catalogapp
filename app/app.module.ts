@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from "@angular/http";
 import {RouterModule} from "@angular/router";
 
+import {FormsModule} from "@angular/forms";
+
 import {ExceptionHandler} from "@angular/core";
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 
@@ -32,6 +34,7 @@ import {apiEndPoint} from "./app.config";
     BrowserModule,
     RouterModule,
     HttpModule,
+    FormsModule,
 
     homeRouting,
     aboutRouting,
@@ -53,11 +56,13 @@ import {apiEndPoint} from "./app.config";
     providers: [
       {
         'provide' : 'apiEndPoint', useValue: apiEndPoint
-      },
+      }
+      
+      /*,
 
       {
         'provide': ExceptionHandler, useClass: AppExceptionHandler
-      }
+      }*/
       
       //,{ 'provide': LocationStrategy, useClass: HashLocationStrategy },
 
