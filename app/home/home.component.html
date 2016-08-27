@@ -1,3 +1,26 @@
 <h2>Home Page</h2>
 
-<p>Welcome to Mobile Store</p>
+<p>Welcome to Mobile Stor </p>
+
+<div id="wrapper">
+  <div id="products">
+      <h4>Our Products</h4>
+        <ul>
+            <li *ngFor="let product of products">
+                    {{product.name}}
+            </li>
+        </ul>
+  </div>
+  <div id="brands">
+      <h4>Brands</h4>
+      <ul>
+            <li *ngFor="let brand of brands">
+                {{brand.name}}
+            </li>
+        </ul>
+  </div>
+  <div id="cleared"></div>
+</div>
+
+<ul>
+</ul>
